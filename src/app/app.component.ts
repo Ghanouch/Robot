@@ -157,6 +157,12 @@ export class AppComponent {
     this.notLunched=true;
     this.colArray = [];
     this.rowArray = [];
+    this.dimensionX = null;
+    this.dimensionY = null;
+    this.firstOrientation = 'N';
+    this.axeX = null;
+    this.axeY = null;
+    this.instruction = null;
   }
 
   // Utils for the mouvements of the aspirator
