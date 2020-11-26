@@ -16,3 +16,23 @@
 }
 
 
+#result {
+  color: #2b4c2c;
+  border: black;
+  border-color: black;
+  background-color: #cea0a0;
+  padding: 5px;
+  margin: 5px;
+  border-style: dotted;
+}
+
+.table {
+  margin: 5px;
+  padding: 10px;
+}
+
+.centerdiv {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

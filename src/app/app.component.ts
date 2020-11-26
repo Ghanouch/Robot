@@ -181,6 +181,7 @@ export class AppComponent {
   constructor(@Inject(DOCUMENT) document) {}
 
   displayCurrentPlace() {
+
     document.getElementById(this.preveiousX + ',' + this.preveiousY).innerHTML =
       'O';
     document.getElementById(this.axeX + ',' + this.axeY).innerHTML = 'X';

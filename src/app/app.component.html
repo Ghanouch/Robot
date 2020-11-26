@@ -36,33 +36,34 @@
   </form>
 </div>
 
-<div>
-  <button [hidden]="notLunched" (click)="ProcessAction()">Move the aspirateur</button>
-</div>
+<div class="centerdiv">
+  <div>
+    <button [hidden]="notLunched" (click)="ProcessAction()">Move the aspirateur</button>
+  </div>
 
-<div class="table">
-  <table>
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col" *ngFor="let col of colArray; index as i">{{i+1}}</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-    <tbody>
-    <tr *ngFor="let col of rowArray; index as i">
-      <td *ngFor="let col of colArray; index as j" id="{{i+1}},{{j+1}}">{{col}}</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="table">
+    <table>
+  <!--    <thead>-->
+  <!--    <tr>-->
+  <!--      <th scope="col" *ngFor="let col of colArray; index as i">{{i+1}}</th>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+      <tbody>
+      <tr *ngFor="let col of rowArray; index as i">
+        <td *ngFor="let col of colArray; index as j" id="{{i+1}},{{j+1}}">{{col}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div [hidden]="!showTable">
-  - Final Configuration :
-   * X = {{axeX}}
-   * y = {{axeY}}
-   * orientation = {{currentOrientation}}
-</div>
+  <div id="result" [hidden]="!showTable">
+    - Final Configuration : <br/>
+     * X = {{axeX}} <br/>
+     * y = {{axeY}} <br/>
+     * orientation = {{currentOrientation}} <br/>
+  </div>
 
-
-<div>
-  <button [hidden]="!showTable" (click)="initialConfig()">Return to Initial Config</button>
+  <div>
+    <button [hidden]="!showTable" (click)="initialConfig()">Return to Initial Config</button>
+  </div>
 </div>
