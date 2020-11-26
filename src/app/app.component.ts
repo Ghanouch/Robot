@@ -149,30 +149,34 @@ export class AppComponent {
 
 
   onSubmit() {
-    if ((this.axeX > this.dimensionX) || this.axeY > this.dimensionY )
+    if ((this.axeX > this.dimensionX) || this.axeY > this.dimensionY || this.axeX <= 0  || this.axeY <= 0 )
     {
       this.checkRequiredDimension = false;
-
-    } else if (this.instructionNotValid()){
-      this.checkRequiredinstruction = false;
-    }
-    else {
+    }else{
       this.checkRequiredDimension = true;
-      this.checkRequiredinstruction = true;
-      this.submitted = true;
-      this.setDimension();
     }
+    if (this.instructionNotValid()){
+      this.checkRequiredinstruction = false;
+    }else{
+      this.checkRequiredinstruction = true;
+    }
+     if (this.checkRequiredDimension && this.checkRequiredinstruction) {
+       this.submitted = true;
+       this.setDimension();
+     }
+
   }
 
   instructionNotValid() : boolean
   {
-    this.instruction.split("")
+    let isMet = false;
+    this.instruction.split('')
       .forEach(action => {
         if (action != 'D' && action != 'G' && action != 'A'){
-          return false;
+          isMet = true;
         }
       });
-    return true;
+    return isMet;
   }
 
   initialConfig() {
