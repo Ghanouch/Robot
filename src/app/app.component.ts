@@ -176,31 +176,31 @@ export class AppComponent {
     }
   }
 
-  wait(ms: any) {
-    var start = new Date().getTime();
-    var end = start;
-    while (end < start + ms) {
-      end = new Date().getTime();
-    }
-  }
+  // wait(ms: any) {
+  //   var start = new Date().getTime();
+  //   var end = start;
+  //   while (end < start + ms) {
+  //     end = new Date().getTime();
+  //   }
+  // }
 
   constructor(@Inject(DOCUMENT) document) {}
-
-  displayCurrentPlace() {
-
-    document.getElementById(this.preveiousX + ',' + this.preveiousY).innerHTML =
-      'O';
-    document.getElementById(this.axeX + ',' + this.axeY).innerHTML = 'X';
-  }
-
-  sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if (new Date().getTime() - start > milliseconds) {
-        break;
-      }
-    }
-  }
+  //
+  // displayCurrentPlace() {
+  //
+  //   document.getElementById(this.preveiousX + ',' + this.preveiousY).innerHTML =
+  //     'O';
+  //   document.getElementById(this.axeX + ',' + this.axeY).innerHTML = 'X';
+  // }
+  //
+  // sleep(milliseconds) {
+  //   var start = new Date().getTime();
+  //   for (var i = 0; i < 1e7; i++) {
+  //     if (new Date().getTime() - start > milliseconds) {
+  //       break;
+  //     }
+  //   }
+  // }
 
 
 }
