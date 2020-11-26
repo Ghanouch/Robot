@@ -29,6 +29,8 @@ export class AppComponent {
   currentOrientation: string;
 
 
+  checkRequiredDimension= true;
+  checkRequiredinstruction= true;
   // Used to hide the previous position of the Aspirateur
   preveiousX: number;
   preveiousY: number;
@@ -147,8 +149,30 @@ export class AppComponent {
 
 
   onSubmit() {
-    this.submitted = true;
-    this.setDimension();
+    if ((this.axeX > this.dimensionX) || this.axeY > this.dimensionY )
+    {
+      this.checkRequiredDimension = false;
+
+    } else if (this.instructionNotValid()){
+      this.checkRequiredinstruction = false;
+    }
+    else {
+      this.checkRequiredDimension = true;
+      this.checkRequiredinstruction = true;
+      this.submitted = true;
+      this.setDimension();
+    }
+  }
+
+  instructionNotValid() : boolean
+  {
+    this.instruction.split("")
+      .forEach(action => {
+        if (action != 'D' && action != 'G' && action != 'A'){
+          return false;
+        }
+      });
+    return true;
   }
 
   initialConfig() {
@@ -163,7 +187,8 @@ export class AppComponent {
     this.axeX = null;
     this.axeY = null;
     this.instruction = null;
-  }
+    this.checkRequiredDimension= true;
+    this.checkRequiredinstruction= true;  }
 
   // Utils for the mouvements of the aspirator
   waitSeconds(iMilliSeconds) {
@@ -186,12 +211,12 @@ export class AppComponent {
 
   constructor(@Inject(DOCUMENT) document) {}
   //
-  // displayCurrentPlace() {
-  //
-  //   document.getElementById(this.preveiousX + ',' + this.preveiousY).innerHTML =
-  //     'O';
-  //   document.getElementById(this.axeX + ',' + this.axeY).innerHTML = 'X';
-  // }
+  displayCurrentPlace() {
+
+    document.getElementById(this.preveiousX + ',' + this.preveiousY).innerHTML =
+      'O';
+    document.getElementById(this.axeX + ',' + this.axeY).innerHTML = 'X';
+  }
   //
   // sleep(milliseconds) {
   //   var start = new Date().getTime();

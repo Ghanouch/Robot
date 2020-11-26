@@ -36,6 +36,15 @@
   </form>
 </div>
 
+<div class="alert alert-danger centerdiv" role="alert"  [hidden]="checkRequiredDimension">
+  ( initial X must be <  initial X ) AND ( initial Y must be <  initial Y )
+</div>
+
+<div class="alert alert-danger centerdiv" role="alert"  [hidden]="checkRequiredinstruction">
+  Instruction must not include any charactere except ( D , G , A )
+</div>
+
+
 <div class="centerdiv">
   <div>
     <button [hidden]="notLunched" (click)="ProcessAction()">Move the aspirateur</button>
